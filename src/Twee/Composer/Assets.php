@@ -31,7 +31,7 @@ class Assets
     {
         echo 'copying - jquery' . PHP_EOL;
         copy('vendor/components/jquery/jquery.js', $destination . '/js/jquery.js');
-        copy('vendor/components/jquery/jquery.min.js', $destination . '/js/jquery.js');
+        copy('vendor/components/jquery/jquery.min.js', $destination . '/js/jquery.min.js');
         copy('vendor/components/jquery/jquery.min.map', $destination . '/js/jquery.min.map');
     }
 
