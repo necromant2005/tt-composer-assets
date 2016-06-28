@@ -7,7 +7,7 @@ use RecursiveIteratorIterator;
 
 class Assets
 {
-    public static function bootstrap($destination)
+    public static function bootstrap(string $destination)
     {
         echo 'copying - getbootstrap' . PHP_EOL;
 
@@ -21,13 +21,13 @@ class Assets
         self::copy('vendor/twbs/bootstrap/dist/fonts', $destination . '/fonts');
     }
 
-    public static function jquery($destination)
+    public static function jquery(string $destination)
     {
         echo 'copying - jquery' . PHP_EOL;
         copy('vendor/components/jquery/jquery.js', $destination . '/js/jquery.js');
     }
 
-    public static function fontAwesome($destination)
+    public static function fontAwesome(string $destination)
     {
         echo 'copying - font-awesome' . PHP_EOL;
 
@@ -39,7 +39,7 @@ class Assets
         self::copy('vendor/components/font-awesome/fonts', $destination . '/fonts');
     }
 
-    public static function package($destination, $package)
+    public static function package(string $destination, string $package)
     {
         echo 'assets: ' . $package . PHP_EOL;
         foreach (['css', 'js', 'fonts', 'images'] as $type) {
@@ -47,7 +47,7 @@ class Assets
         }
     }
 
-    public static function copy($source, $destination)
+    public static function copy(string $source, string $destination)
     {
         if (!file_exists($source)) {
             return;
