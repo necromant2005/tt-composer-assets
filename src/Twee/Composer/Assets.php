@@ -15,8 +15,14 @@ class Assets
         $content = preg_replace('~url\(\'\.\.([^\']+)\'\)~s', 'url("\\1")', $content);
         file_put_contents($destination . '/css/bootstrap.css', $content, LOCK_EX);
 
+        $content = file_get_contents('vendor/twbs/bootstrap/dist/css/bootstrap.min.css');
+        $content = preg_replace('~url\(\'\.\.([^\']+)\'\)~s', 'url("\\1")', $content);
+        file_put_contents($destination . '/css/bootstrap.min.css', $content, LOCK_EX);
+
         copy('vendor/twbs/bootstrap/dist/css/bootstrap.css.map', $destination . '/css/bootstrap.css.map');
+        copy('vendor/twbs/bootstrap/dist/css/bootstrap.min.css.map', $destination . '/css/bootstrap.min.css.map');
         copy('vendor/twbs/bootstrap/dist/js/bootstrap.js', $destination . '/js/bootstrap.js');
+        copy('vendor/twbs/bootstrap/dist/js/bootstrap.min.js', $destination . '/js/bootstrap.min.js');
 
         self::copy('vendor/twbs/bootstrap/dist/fonts', $destination . '/fonts');
     }
@@ -25,11 +31,18 @@ class Assets
     {
         echo 'copying - jquery' . PHP_EOL;
         copy('vendor/components/jquery/jquery.js', $destination . '/js/jquery.js');
+        copy('vendor/components/jquery/jquery.min.js', $destination . '/js/jquery.js');
+        copy('vendor/components/jquery/jquery.min.map', $destination . '/js/jquery.min.map');
     }
 
     public static function fontAwesome(string $destination)
     {
         echo 'copying - font-awesome' . PHP_EOL;
+
+        $content = file_get_contents('vendor/components/font-awesome/css/font-awesome.css');
+        $content = preg_replace('~url\(\'\.\.([^\']+)\'\)~s', 'url("\\1")', $content);
+        $content = preg_replace('~(\?|&)v=\d+\.\d+\.\d+\"~s', '"', $content);
+        file_put_contents($destination . '/css/font-awesome.css', $content, LOCK_EX);
 
         $content = file_get_contents('vendor/components/font-awesome/css/font-awesome.min.css');
         $content = preg_replace('~url\(\'\.\.([^\']+)\'\)~s', 'url("\\1")', $content);
