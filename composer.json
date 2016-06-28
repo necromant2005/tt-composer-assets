@@ -1,0 +1,26 @@
+{
+    "name": "necromant2005/tt-composer-assets",
+    "type": "library",
+    "description": "composer assets manager",
+    "keywords": ["composer", "assets", "mamnager"],
+    "homepage": "https://github.com/necromant2005/tt-composer-assets",
+    "authors": [
+        {
+            "name": "Rostislav Mykhajliw",
+            "email": "necromant2005@gmail.com",
+            "homepage": "https://github.com/necromant2005",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": ">=7",
+        "twbs/bootstrap": "*",
+        "components/jquery": "2.*",
+        "components/font-awesome": "*"
+    },
+    "autoload": {
+        "psr-4": {
+            "Twee\\Composer\\": "src/Twee/Composer"
+        }
+    }
+}
