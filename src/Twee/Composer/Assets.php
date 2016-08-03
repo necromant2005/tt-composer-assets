@@ -16,7 +16,7 @@ class Assets
         file_put_contents($destination . '/css/bootstrap.css', $content, LOCK_EX);
 
         $content = file_get_contents('vendor/twbs/bootstrap/dist/css/bootstrap.min.css');
-        $content = preg_replace('~url\(\'\.\.([^\']+)\'\)~s', 'url("\\1")', $content);
+        $content = preg_replace('~url\(\.\.([^\)]+)\)~s', 'url("\\1")', $content);
         file_put_contents($destination . '/css/bootstrap.min.css', $content, LOCK_EX);
 
         copy('vendor/twbs/bootstrap/dist/css/bootstrap.css.map', $destination . '/css/bootstrap.css.map');
