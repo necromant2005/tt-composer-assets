@@ -15,7 +15,7 @@
     "require": {
         "php": ">=7",
         "twbs/bootstrap": "*",
-        "components/jquery": "2.*",
+        "components/jquery": "*",
         "components/font-awesome": "*"
     },
     "autoload": {
